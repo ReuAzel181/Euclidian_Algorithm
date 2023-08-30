@@ -1,0 +1,38 @@
+print("---Euclidian Algorithm---")
+print("------Only integer!------\n")
+
+def leading_zero(number):
+    return f"{number:02}"
+
+res = "y"
+
+while res.lower() == "y":
+    try:
+        n = int(input("Enter the m: "))
+        m = int(input("Enter the n: "))
+        print(" ")
+        n1 = n
+        m1 = m
+        if m == 0:
+            print("\nm is 0\n")
+
+        if m != 0:
+            print("r      m      n")
+            print("________________")
+
+        while n != 0:
+            r = m % n
+            m_str = leading_zero(m)  
+            n_str = leading_zero(n) 
+            r_str = leading_zero(r)  
+            
+            if m != 0:
+                print(r_str, "   ", m_str, "   ", n_str, "\n")
+
+            m = n
+            n = r
+
+        print("The GCD of", n1, "and", m1, "is", m_str, "\n")
+        res = input("Do you want to continue? Y/N \n")
+    except ValueError:
+        print("\nInvalid input! Please enter a valid integer.\n")
