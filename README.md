@@ -16,5 +16,5 @@ git clone https://github.com/your-username/your-repository.git
 cd your-repository
 python euclidean_algorithm.py
 
-![UI](https://raw.githubusercontent.com/ReuAzel181/Euclidian_Algorithm/main/img/ui.png)
+![UI](https://github.com/ReuAzel181/Euclidian_Algorithm/blob/2a8fe06deb98512e61cd7a2a54efada6acb46033/img/ui.png)
 
