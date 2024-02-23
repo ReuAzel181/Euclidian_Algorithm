@@ -1,38 +1,65 @@
-print("---Euclidian Algorithm---")
-print("------Only integer!------\n")
+import tkinter as tk
+from tkinter import messagebox
 
 def leading_zero(number):
     return f"{number:02}"
 
-res = "y"
-
-while res.lower() == "y":
+def calculate_gcd():
     try:
-        n = int(input("Enter the m: "))
-        m = int(input("Enter the n: "))
-        print(" ")
+        n = int(entry_m.get())
+        m = int(entry_n.get())
+        text_output.delete(1.0, tk.END)
+
         n1 = n
         m1 = m
         if m == 0:
-            print("\nm is 0\n")
+            text_output.insert(tk.END, "\nm is 0\n")
 
         if m != 0:
-            print("r      m      n")
-            print("________________")
+            text_output.insert(tk.END, "r      m      n\n")
+            text_output.insert(tk.END, "________________\n")
 
         while n != 0:
             r = m % n
-            m_str = leading_zero(m)  
-            n_str = leading_zero(n) 
-            r_str = leading_zero(r)  
-            
+            m_str = leading_zero(m)
+            n_str = leading_zero(n)
+            r_str = leading_zero(r)
+
             if m != 0:
-                print(r_str, "   ", m_str, "   ", n_str, "\n")
+                text_output.insert(tk.END, f"{r_str}   {m_str}   {n_str}\n")
 
             m = n
             n = r
 
-        print("The GCD of", n1, "and", m1, "is", m_str, "\n")
-        res = input("Do you want to continue? Y/N \n")
+        text_output.insert(tk.END, f"The GCD of {n1} and {m1} is {leading_zero(m)}\n")
     except ValueError:
-        print("\nInvalid input! Please enter a valid integer.\n")
+        messagebox.showerror("Error", "Invalid input! Please enter a valid integer.")
+
+def clear_entries():
+    entry_m.delete(0, tk.END)
+    entry_n.delete(0, tk.END)
+    text_output.delete(1.0, tk.END)
+
+root = tk.Tk()
+root.title("Euclidean Algorithm")
+
+label_m = tk.Label(root, text="Enter the m:")
+label_m.pack()
+entry_m = tk.Entry(root)
+entry_m.pack()
+
+label_n = tk.Label(root, text="Enter the n:")
+label_n.pack()
+entry_n = tk.Entry(root)
+entry_n.pack()
+
+button_calculate = tk.Button(root, text="Calculate GCD", command=calculate_gcd)
+button_calculate.pack()
+
+button_clear = tk.Button(root, text="Clear", command=clear_entries)
+button_clear.pack()
+
+text_output = tk.Text(root, height=20, width=40)
+text_output.pack()
+
+root.mainloop()
