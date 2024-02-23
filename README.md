@@ -7,14 +7,6 @@ This is a simple Python application that demonstrates the Euclidean Algorithm fo
 - Calculate GCD: Enter two numbers and click "Calculate GCD" to see the step-by-step process and the result.
 - Clear: Click "Clear" to reset the input fields and output.
 
-## Getting Started
-
-To run the application, clone the repository and run the `euclidean_algorithm.py` file:
-
-```bash
-git clone https://github.com/your-username/your-repository.git
-cd your-repository
-python euclidean_algorithm.py
 
 ![UI](https://github.com/ReuAzel181/Euclidian_Algorithm/blob/2a8fe06deb98512e61cd7a2a54efada6acb46033/img/ui.png)
 
