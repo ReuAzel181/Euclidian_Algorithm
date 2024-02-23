@@ -31,7 +31,7 @@ def calculate_gcd():
             m = n
             n = r
 
-        text_output.insert(tk.END, f"The GCD of {n1} and {m1} is {leading_zero(m)}\n")
+        text_output.insert(tk.END, f"The GCD of {n1} and {m1} is {leading_zero(m)}\n", "green")
     except ValueError:
         messagebox.showerror("Error", "Invalid input! Please enter a valid integer.")
 
@@ -44,22 +44,27 @@ root = tk.Tk()
 root.title("Euclidean Algorithm")
 
 label_m = tk.Label(root, text="Enter the m:")
-label_m.pack()
+label_m.pack(pady=5, padx=10, anchor=tk.W)
 entry_m = tk.Entry(root)
-entry_m.pack()
+entry_m.pack(pady=5, padx=10, anchor=tk.W)
 
 label_n = tk.Label(root, text="Enter the n:")
-label_n.pack()
+label_n.pack(pady=5, padx=10, anchor=tk.W)
 entry_n = tk.Entry(root)
-entry_n.pack()
+entry_n.pack(pady=5, padx=10, anchor=tk.W)
 
 button_calculate = tk.Button(root, text="Calculate GCD", command=calculate_gcd)
-button_calculate.pack()
+button_calculate.pack(pady=5, padx=10, anchor=tk.CENTER)
 
 button_clear = tk.Button(root, text="Clear", command=clear_entries)
-button_clear.pack()
+button_clear.pack(pady=5, padx=11, anchor=tk.CENTER)
 
-text_output = tk.Text(root, height=20, width=40)
-text_output.pack()
+text_output = tk.Text(root, height=10, width=40)
+text_output.pack(pady=10)
+
+text_output.tag_configure("red", foreground="red")
+text_output.tag_configure("green", foreground="green")
+text_output.tag_configure("blue", foreground="blue")
+text_output.tag_configure("black", foreground="black")
 
 root.mainloop()
